@@ -1,2 +1,1 @@
-# math-for-ds
-A set of cheat sheets about basic math concepts for data science.
+Source for [Math Cheatsheet for Data Science](https://shotahorii.github.io/math-for-ds/)
