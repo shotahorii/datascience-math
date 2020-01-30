@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="A set of articles about basic math concepts behind machine learning.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" type="image/png" href="./favicon.png">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <style>
+    article,footer { border-top: 1px solid grey; margin: auto; padding: 20px 10px 20px 10px; }
+    article p{ margin-bottom: 0; }
+    footer p{ text-align: center; }
+    ul.nav { margin-bottom: 40px }
+    @media screen and (min-width:600px){ article,footer { width: 600px;} }
+  </style>
+  <title>Math Cheatsheets for Data Science</title>
+</head>
+<body>
+  <header>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+      <h1 class="display-4">Math Cheatsheets <br> for Data Science</h1>
+      <p class="lead">A set of cheat sheets about basic math concepts for data science.</p>
+    </div>
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active lead" href="javascript:ShowArticles(filter_all());">All</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle lead" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Category</a>
+        <div class="dropdown-menu" id="categories"></div>
+      </li>
+    </ul>
+  </header>
+  <main id="main"></main>
+  <footer>
+    <p><small>2020 Shota Horii</small></p>
+  </footer>
+
+<script>
+// ========== Add url here (latest on the bottom) when a new article added ==========
+const contents = [
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/bernoulli_distribution.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/fundamental/binomial_coefficient.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/binomial_distribution.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/fundamental/gamma_function_and_beta_function.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/beta_distribution.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/set_and_topology/limit_of_a_sequence.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/expected_value_and_variance.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/covariance_matrix.ipynb",
+  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/categorical_distribution.ipynb",
+];
+// =======================================================================
+
+//util functions
+const root = "https://github.com/shotahorii/math-for-ml/blob/master/content/";
+const capitalise = (s) => {return s.charAt(0).toUpperCase() + s.slice(1)};
+const clean = (s) => {return s.split("_").join(" ").split(".")[0]}; // replace _ with space and remove expansion such as .ipynb
+const get_category = (content) => {return capitalise(clean(content.replace(root,"").split("/")[0]))};
+const get_title = (content) => {return capitalise(clean(content.replace(root,"").split("/")[1]))};
+
+//filter functions
+const filter_all = () => {return (content) => {return true;};};
+const filter_category = (category) => {return (content) => {return get_category(content)==category;};};
+
+//controller of articles to show
+function ShowArticles(f){ //takes filter function as input
+  let articles = contents.filter(f).map(function(v,i){
+              let c = get_category(v);
+              let t = get_title (v);
+              return "<article><h3 class='lead'><a href='"+v+"'>"+t+"</a></h3><p>Category: "+c+"</p></article>";
+          }).reverse();
+  document.getElementById('main').innerHTML = articles.join(" ");
+}
+
+// create category dropdown menu (Distinct and Alphabetical order)
+function InitDropdown() {
+  let categories = Array.from(new Set(contents.map(function(v,i){
+              let c = get_category(v);
+              return "<a class='dropdown-item' href="+ "'javascript:ShowArticles(filter_category(\""+c+"\"))';" +">"+c+"</a>";
+          }))).sort();
+  document.getElementById('categories').innerHTML = categories.join(" ");
+}
+
+// initialise
+InitDropdown();
+ShowArticles(filter_all());
+</script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
