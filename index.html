@@ -39,20 +39,20 @@
 <script>
 // ========== Add url here (latest on the bottom) when a new article added ==========
 const contents = [
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/bernoulli_distribution.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/fundamental/binomial_coefficient.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/binomial_distribution.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/fundamental/gamma_function_and_beta_function.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/beta_distribution.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/set_and_topology/limit_of_a_sequence.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/expected_value_and_variance.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/covariance_matrix.ipynb",
-  "https://github.com/shotahorii/math-for-ml/blob/master/content/probability_distribution/categorical_distribution.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/statistics_and_probability/bernoulli_distribution.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/others/binomial_coefficient.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/statistics_and_probability/binomial_distribution.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/others/gamma_function_and_beta_function.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/statistics_and_probability/beta_distribution.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/set_and_topology/limit_of_a_sequence.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/statistics_and_probability/expected_value_and_variance.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/statistics_and_probability/covariance_matrix.ipynb",
+  "https://github.com/shotahorii/math-for-ds/blob/master/content/statistics_and_probability/categorical_distribution.ipynb",
 ];
 // =======================================================================
 
 //util functions
-const root = "https://github.com/shotahorii/math-for-ml/blob/master/content/";
+const root = "https://github.com/shotahorii/math-for-ds/blob/master/content/";
 const capitalise = (s) => {return s.charAt(0).toUpperCase() + s.slice(1)};
 const clean = (s) => {return s.split("_").join(" ").split(".")[0]}; // replace _ with space and remove expansion such as .ipynb
 const get_category = (content) => {return capitalise(clean(content.replace(root,"").split("/")[0]))};
