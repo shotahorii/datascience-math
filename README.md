@@ -18,7 +18,7 @@ Only prerequisites is a jupyter environment. If you have a Jupyter environment o
 
 #### Run 
 
-`cd` to this directory, then type below. 
+`cd` to the directory where README.md is located, then type below. 
 
 ```
 docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/minimal-notebook
