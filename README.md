@@ -8,7 +8,7 @@ The cheat sheets are written in LaTeX on Jupyter notebook. No need to download, 
 
 ## View/Edit on your computer
 
-Only prerequisites is a jupyter environment. Below is an example env. 
+Only prerequisites is a jupyter environment. Below is an example environment. 
 
 ### Example Environment
 
@@ -18,11 +18,7 @@ Only prerequisites is a jupyter environment. Below is an example env.
 
 #### Run 
 
-```
-cd path/to/this/directory
-```
-
-Then, 
+`cd` to this directory, then type below. 
 
 ```
 docker run --rm -p 8888:8888 -v "$PWD":/home/jovyan/work jupyter/minimal-notebook
