@@ -6,9 +6,9 @@ A set of cheat sheets about mathematical topics frequently used in data science.
 
 The cheat sheets are written in LaTeX on Jupyter notebook. No need to download, you can just view on GitHub. Search topics via the html page - [Math Cheatsheets for Data Science](https://shotahorii.github.io/datascience-math/).
 
-## View/Edit on your computer
+## Run on your computer
 
-Only prerequisites is a jupyter environment. Below is an example environment. 
+Only prerequisites is a jupyter environment. If you have a Jupyter environment on you computer, you can run all notebooks here, without any specific libraries installed. Otherwise, below is an example environment. 
 
 ### Example Environment
 
