@@ -1,4 +1,4 @@
-# Math Cheat sheets for Data Science
+# Math Cheatsheets for Data Science
 
 A set of cheat sheets about mathematical topics frequently used in data science. Easy to search topics via the html page - [Math Cheatsheets for Data Science](https://shotahorii.github.io/datascience-math/).
 
